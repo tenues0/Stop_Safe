@@ -1,39 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-import Navbar from './components/Navbar';
-
-const client = new ApolloClient({
-  request: (operation) => {
-    const token = localStorage.getItem("id_token");
-
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    });
-  },
-  uri: "/graphql",
-});
-
+import './App.css';
+import profile from "./images/profile.jpeg";
+import email from "./images/email.jpeg";
+import password from "./images/password.jpeg";
 function App() {
   return (
-    <ApolloProvider client ={client}>
-    <Router>
-      <>
-        <Navbar />
-        <Routes>
-          <Route exact path='/' component={SearchBooks} />
-          <Route exact path='/saved' component={SavedBooks} />
-          <Route render={() => <h1 className='display-2'>Wrong Page!</h1>} />
-        </Routes>
-      </>
-    </Router>
-    </ApolloProvider>
-  );
+    <div className="main">
+      <div className="sub-main">
+        <div>
+          <div className="imgs">
+            <div className="container-image">
+              <img src={profile} alt="profile" className="profile" />
+            </div>
+          </div>
+          <div>
+            <h1>Login Page</h1>
+            <div>
+              <img src={email} alt="email" className="email"/>
+              <input type="text" placeholder='user name' className='name'/>
+            </div>
+            <div className='second-input'>
+              <img src={password} alt="password" className="email"/>
+              <input type="password" placeholder='user name' className='name'/>
+            </div>
+            <div className='login-button'>
+            <button>Login</button>
+            </div>
+              <p className='link'>
+                <a href='#'>Forgot Password?</a> Or <a href='#'>Sign Up</a>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
-
 export default App;
