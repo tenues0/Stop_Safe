@@ -3,6 +3,11 @@ const bcrypt = require('bcrypt');
 
 const policeSchema = new Schema(
   {
+    badgeNumber: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
     fullname: {
       type: String,
       required: true,

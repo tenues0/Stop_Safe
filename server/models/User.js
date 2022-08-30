@@ -65,6 +65,6 @@ driverSchema.virtual('ticketCount').get(function () {
   return this.ticketsInfo.length;
 });
 
-const Driver = model('User', driverSchema);
+const User = model('User', driverSchema);
 
-module.exports = Driver;
+module.exports = User;
