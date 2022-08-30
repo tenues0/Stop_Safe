@@ -6,12 +6,28 @@ const insuranceSchema = new Schema({
     type: String,
     required: true,
   },
+  issueDate: {
+    type: Number,
+    required: true,
+  },
+  expirationDate: {
+    type: Number,
+    required: true,
+  },
   vehicleMake: {
     type: String,
     required: true,
   },
   vehicleModel: {
     type: String,
+    required: true,
+  },
+  vehicleColor: {
+    type: String,
+    required: true,
+  },
+  vehicleYear: {
+    type: Number,
     required: true,
   },
 });
