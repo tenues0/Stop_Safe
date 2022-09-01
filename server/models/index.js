@@ -1,4 +1,4 @@
-const Driver = require('./Driver');
+const Driver = require('./User');
 const Registration = require('./Registration');
 const Insurance = require('./Insurance');
 const Police = require('./Police');
