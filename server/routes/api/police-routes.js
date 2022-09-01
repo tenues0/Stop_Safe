@@ -5,7 +5,7 @@ const {
   saveTicket,
   deleteTicket,
   login,
-} = require('../../controllers/user-controller');
+} = require('../../controllers/police-controller');
 
 // import middleware
 const { authMiddleware } = require('../../utils/auth');
