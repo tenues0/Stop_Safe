@@ -4,6 +4,12 @@ const {
   getSingleUser,
   saveBook,
   deleteBook,
+  saveInsurance,
+  deleteInsurance,
+  saveRegistration,
+  deleteRegistration,
+  saveTicket,
+  deleteTicket,
   login,
 } = require('../../controllers/user-controller');
 
