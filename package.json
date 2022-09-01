@@ -16,6 +16,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@apollo/react-hooks": "^4.0.0"
+    "@apollo/react-hooks": "^4.0.0",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3"
   }
 }

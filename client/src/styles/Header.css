@@ -1,0 +1,15 @@
+.Header {
+    text-align: center;
+    background-color: red;
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+    color: yellow;
+    display: flex;
+    align-items: center;
+}
+
+.left-panel {
+    background-color: lightyellow;
+    width: 8rem;
+    height: 8rem;
+}
