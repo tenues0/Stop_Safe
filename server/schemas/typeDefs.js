@@ -1,41 +1,56 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-    type Book {
-        authors: [String]
-        description: String
-        bookId: String
-        image: String
-        link: String
-        title: String
-    }
     type User {
-        _id: ID
-        username: String
+        fullname: String
+        licenseNumber: Number
+        phoneNumber: Number
         email: String
-        bookCount: Int
-        savedBooks: [Book]        
+        password: String
+             
     }
-    type Query {
-        me: User
+    input saveInsurance {
+        policyId: String
+        vehicleMake: String
+        vehicleModel: String
     }
-    type Auth {
-    token: ID!
-    user: User
+    input saveRegistration {
+        registrationId: String
+        expirationDate: Number
+        vehicleMake: String
+        vehicleModel: String
+
     }
-    input SavedBookInput {
-        authors: [String]
+    input saveTicket {
+        ticketId: String
         description: String
-        bookId: String
-        image: String
-        link: String
-        title: String
+        vehicleMake: String
+        vehicleModel: String
     }
+    type Police {
+        fullname: String
+        agencyAffiliation: String
+        supervisor: String
+        badgeNumber: Number
+        email: String
+        password: String
+    }
+    input saveTicket {
+        ticketId: String
+        description: String
+        vehicleMake: String
+        vehicleModel: String
+    }
+ 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        saveBook(book: SavedBookInput): User
-        removeBook(bookId: String!): User
+        saveInsurance(User: saveInsurance): User
+        deleteInsurance(policyId: String!): User
+        saveRegistration(User: saveRegistration): User
+        deleteRegistration(registrationId: String!): User
+        saveTicket(User: saveTicket): User
+        deleteticket(ticketId: String!):User
 }
 `;
 
