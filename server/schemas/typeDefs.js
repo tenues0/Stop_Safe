@@ -6,8 +6,20 @@ const typeDefs = gql`
         licenseNumber: Number
         phoneNumber: Number
         email: String
+        password: String      
+    }
+    type Police {
+        fullname: String
+        agencyAffiliation: String
+        supervisor: String
+        badgeNumber: Number
+        phoneNumber: Number
+        email: String
         password: String
-             
+    }
+    type Query {
+        me: User
+        policeme: Police
     }
     input saveInsurance {
         policyId: String
@@ -19,7 +31,6 @@ const typeDefs = gql`
         expirationDate: Number
         vehicleMake: String
         vehicleModel: String
-
     }
     input saveTicket {
         ticketId: String
@@ -27,24 +38,11 @@ const typeDefs = gql`
         vehicleMake: String
         vehicleModel: String
     }
-    type Police {
-        fullname: String
-        agencyAffiliation: String
-        supervisor: String
-        badgeNumber: Number
-        email: String
-        password: String
-    }
-    input saveTicket {
-        ticketId: String
-        description: String
-        vehicleMake: String
-        vehicleModel: String
-    }
- 
     type Mutation {
         login(email: String!, password: String!): Auth
-        addUser(username: String!, email: String!, password: String!): Auth
+        policelogin(email: String!, password: String!): Auth
+        addUser(fullname: String!, email: String!, password: String!): Auth
+        addPolice(fullname: String!, email: String!, password: String!): Auth
         saveInsurance(User: saveInsurance): User
         deleteInsurance(policyId: String!): User
         saveRegistration(User: saveRegistration): User
