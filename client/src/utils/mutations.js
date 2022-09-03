@@ -6,55 +6,149 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username
+        fullname
+      }
+    }
+  }
+`;
+
+export const LOGIN_POLICE = gql`
+  mutation loginpolice($email: String!, $password: String!) {
+    loginpolice(email: $email, password: $password) {
+      token
+      police {
+        _id
+        fullname
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($fullname: String!, $email: String!, $password: String!) {
+    addUser(fullname: $fullname, email: $email, password: $password) {
       token
       user {
         _id
-        username
+        fullname
       }
     }
   }
 `;
 
-export const SAVE_BOOK = gql`
-  mutation saveBook($book: SavedBookInput!) {
-    saveBook(book: $book) {
-      username
-      email
-      bookCount
-      savedBooks {
-        authors
-        description
-        bookId
-        image
-        link
-        title
+export const ADD_POLICE = gql`
+  mutation addPolice($fullname: String!, $email: String!, $password: String!) {
+    addPolice(fullname: $fullname, email: $email, password: $password) {
+      token
+      police {
+        _id
+        fullname
       }
     }
   }
 `;
 
-export const REMOVE_BOOK = gql`
-  mutation removeBook($bookId: String!) {
-    removeBook(bookId: $bookId) {
-      username
+export const SAVE_INSURANCE = gql`
+  mutation saveInsurance($insurance: saveInsuranceInput!) {
+    saveInsurance(insurance: $insurance) {
+      fullname
+      licenseNumber
+      phoneNumber
       email
-      bookCount
-      savedBooks {
-        authors
+      ticketCount
+      insuranceInfo {
+        policyId
+        vehicleMake
+        vehicleModel
+      }
+    }
+  }
+`;
+
+export const DELETE_INSURANCE = gql`
+  mutation deleteInsurance($policyId: String!) {
+    deleteInsurance(policyId: String!) {
+      fullname
+      licenseNumber
+      phoneNumber
+      email
+      ticketCount
+      insuranceInfo {
+        policyId
+        vehicleMake
+        vehicleModel
+      }
+    }
+  }
+`;
+
+export const SAVE_REGISTRATION = gql`
+  mutation saveRegistration($registration: saveRegistrationInput!) {
+    saveRegistration(registration: $registration) {
+      fullname
+      licenseNumber
+      phoneNumber
+      email
+      ticketCount
+      registrationInfo {
+        registrationId
+        expirationDate
+        vehicleMake
+        vehicleModel
+      }
+    }
+  }
+`;
+
+export const DELETE_REGISTRATION = gql`
+  mutation deleteInsurance($registrationId: String!) {
+    deleteInsurance(registrationId: String!) {
+      fullname
+      licenseNumber
+      phoneNumber
+      email
+      ticketCount
+      registrationInfo {
+        registrationId
+        expirationDate
+        vehicleMake
+        vehicleModel
+      }
+    }
+  }
+`;
+
+export const SAVE_TICKET = gql`
+  mutation saveTicket($ticket: saveTicketInput!) {
+    saveTicket(ticket: $ticket) {
+      fullname
+      licenseNumber
+      phoneNumber
+      email
+      ticketCount
+      ticketsInfo {
+        ticketId
         description
-        bookId
-        image
-        link
-        title
+        vehicleMake
+        vehicleModel
+      }
+    }
+  }
+`;
+
+export const DELETE_TICKET = gql`
+  mutation deleteticket($ticketId: String!) {
+    deleteticket(ticketId: String!) {
+      fullname
+      licenseNumber
+      phoneNumber
+      email
+      ticketCount
+      ticketsInfo {
+        ticketId
+        description
+        vehicleMake
+        vehicleModel
       }
     }
   }

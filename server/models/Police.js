@@ -12,7 +12,7 @@ const policeSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-      },
+    },
     supervisor: {
     type: String,
     required: true,

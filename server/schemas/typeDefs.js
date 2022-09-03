@@ -1,6 +1,23 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+    type Insurance {
+        policyId: String
+        vehicleMake: String
+        vehicleModel: String
+    }
+    type Registration {
+        registrationId: String
+        expirationDate: Number
+        vehicleMake: String
+        vehicleModel: String
+    }
+    type Ticket {
+        ticketId: String
+        description: String
+        vehicleMake: String
+        vehicleModel: String
+    }
     type User {
         fullname: String
         licenseNumber: Number
@@ -21,18 +38,18 @@ const typeDefs = gql`
         me: User
         policeme: Police
     }
-    input saveInsurance {
+    input saveInsuranceInput {
         policyId: String
         vehicleMake: String
         vehicleModel: String
     }
-    input saveRegistration {
+    input saveRegistrationInput {
         registrationId: String
         expirationDate: Number
         vehicleMake: String
         vehicleModel: String
     }
-    input saveTicket {
+    input saveTicketInput {
         ticketId: String
         description: String
         vehicleMake: String
@@ -43,13 +60,13 @@ const typeDefs = gql`
         policelogin(email: String!, password: String!): Auth
         addUser(fullname: String!, email: String!, password: String!): Auth
         addPolice(fullname: String!, email: String!, password: String!): Auth
-        saveInsurance(User: saveInsurance): User
+        saveInsurance(User: saveInsuranceInput): User
         deleteInsurance(policyId: String!): User
-        saveRegistration(User: saveRegistration): User
+        saveRegistration(User: saveRegistrationInput): User
         deleteRegistration(registrationId: String!): User
-        saveTicket(User: saveTicket): User
-        deleteticket(ticketId: String!):User
-}
+        saveTicket(User: saveTicketInput): Police
+        deleteticket(ticketId: String!):Police
+    }
 `;
 
 module.exports = typeDefs;
