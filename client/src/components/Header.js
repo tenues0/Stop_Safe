@@ -5,7 +5,7 @@ function LeftNavbar() {
     return (
     <div className="Header">
         <h1>Stop Safe</h1>
-        <button classname="Logout">Logout</button>
+        <button className="Logout">Logout</button>
     </div>
     )
 }

@@ -1,17 +1,17 @@
 import React from "react";
 import '../styles/Header.css'
 
-function Header() {
+function Header({setPage, Account, Update, Contact}) {
     return (
-    <body>
+    <>
       <div className="Content-Container">
         <div className="left-panel">
-          <button className="Button">Account Information</button>
-          <button className="Button">Update Your Information</button>
-          <button className="Button">Contact DMV</button>
+          <button onClick={() => setPage(<Account/>)} className="btn">Account Information</button>
+          <button onClick={() => setPage(<Update/>)} className="btn">Update Your Information</button>
+          <button onClick={() => setPage(<Contact/>)} className="btn">Contact DMV</button>
         </div>
       </div>
-    </body>
+    </>
     )
 }
 

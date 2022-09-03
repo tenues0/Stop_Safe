@@ -1,5 +1,15 @@
 .left-panel {
     background-color: rgb(158, 232, 244);
-    width: 8rem;
-    height: 8rem;
+    width: 20rem;
+    height: 40rem;
+}
+.btn {
+    width: 10rem;
+    border: none;
+    background-color: rgb(158, 232, 244);
+    cursor: pointer;
+    display: block;
+    padding: 3rem;
+    padding-left: 4.2rem;
+    font-size: 1.2rem;
 }
