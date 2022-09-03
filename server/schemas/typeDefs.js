@@ -8,7 +8,7 @@ const typeDefs = gql`
     }
     type Registration {
         registrationId: String
-        expirationDate: String
+        expirationDate: Int
         vehicleMake: String
         vehicleModel: String
     }
@@ -20,8 +20,8 @@ const typeDefs = gql`
     }
     type User {
         fullname: String
-        licenseNumber: String
-        phoneNumber: String
+        licenseNumber: Int
+        phoneNumber: Int
         email: String
         password: String      
     }
@@ -29,8 +29,8 @@ const typeDefs = gql`
         fullname: String
         agencyAffiliation: String
         supervisor: String
-        badgeNumber: String
-        phoneNumber: String
+        badgeNumber: Int
+        phoneNumber: Int
         email: String
         password: String
     }
