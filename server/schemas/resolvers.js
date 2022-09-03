@@ -1,6 +1,6 @@
 const { User, Police } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
+const { signToken } = require('../utils/auth.js');
 const { trusted } = require('mongoose');
 
 const resolvers = {
@@ -35,7 +35,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        policelogin: async (parent, { email, password }) => {
+        loginpolice: async (parent, { email, password }) => {
             const police = await Police.findOne( { email });
             if(!police) {
                 throw new AuthenticationError('Incorrect credentials')
