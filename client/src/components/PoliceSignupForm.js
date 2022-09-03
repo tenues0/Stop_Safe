@@ -3,9 +3,9 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 
 import Auth from "../utils/auth";
-import { ADD_USER } from "../utils/mutations";
+import { ADD_POLICE } from "../utils/mutations";
 
-const SignupForm = () => {
+const PoliceSignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     fullname: "",
@@ -17,7 +17,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_POLICE);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -127,4 +127,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default PoliceSignupForm;

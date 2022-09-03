@@ -1,10 +1,27 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+    type Insurance {
+        policyId: String
+        vehicleMake: String
+        vehicleModel: String
+    }
+    type Registration {
+        registrationId: String
+        expirationDate: Int
+        vehicleMake: String
+        vehicleModel: String
+    }
+    type Ticket {
+        ticketId: String
+        description: String
+        vehicleMake: String
+        vehicleModel: String
+    }
     type User {
         fullname: String
-        licenseNumber: Number
-        phoneNumber: Number
+        licenseNumber: Int
+        phoneNumber: Int
         email: String
         password: String      
     }
@@ -12,8 +29,8 @@ const typeDefs = gql`
         fullname: String
         agencyAffiliation: String
         supervisor: String
-        badgeNumber: Number
-        phoneNumber: Number
+        badgeNumber: Int
+        phoneNumber: Int
         email: String
         password: String
     }
@@ -21,18 +38,23 @@ const typeDefs = gql`
         me: User
         policeme: Police
     }
-    input saveInsurance {
+    type Auth {
+        token: ID!
+        user: User
+        police: Police
+    }
+    input saveInsuranceInput {
         policyId: String
         vehicleMake: String
         vehicleModel: String
     }
-    input saveRegistration {
+    input saveRegistrationInput {
         registrationId: String
-        expirationDate: Number
+        expirationDate: Int
         vehicleMake: String
         vehicleModel: String
     }
-    input saveTicket {
+    input saveTicketInput {
         ticketId: String
         description: String
         vehicleMake: String
@@ -40,16 +62,16 @@ const typeDefs = gql`
     }
     type Mutation {
         login(email: String!, password: String!): Auth
-        policelogin(email: String!, password: String!): Auth
+        loginpolice(email: String!, password: String!): Auth
         addUser(fullname: String!, email: String!, password: String!): Auth
         addPolice(fullname: String!, email: String!, password: String!): Auth
-        saveInsurance(User: saveInsurance): User
+        saveInsurance(User: saveInsuranceInput): User
         deleteInsurance(policyId: String!): User
-        saveRegistration(User: saveRegistration): User
+        saveRegistration(User: saveRegistrationInput): User
         deleteRegistration(registrationId: String!): User
-        saveTicket(User: saveTicket): User
-        deleteticket(ticketId: String!):User
-}
+        saveTicket(User: saveTicketInput): Police
+        deleteTicket(ticketId: String!): Police
+    }
 `;
 
 module.exports = typeDefs;
