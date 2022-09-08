@@ -1,17 +1,135 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 body {
-  font-family: 'Rubik', sans-serif;
+    overflow: hidden;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Rubik Mono One', sans-serif;
+.Content-Container {
+    display: flex;
+    justify-content: flex-start;
 }
-
-.small {
-  font-weight: 300;
-  font-style: italic;
+.Header {
+    height: 5.5rem;
+    text-align: center;
+    padding-left: 4rem;
+    background-color: rgb(68, 175, 210);
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+}
+.left-panel {
+    background-color: rgb(158, 231, 244);
+    width: 18rem;
+    height: 40rem;
+}
+.btn {
+    width: 10rem;
+    border: none;
+    background-color: rgb(158, 232, 244);
+    cursor: pointer;
+    display: block;
+    padding: 3rem;
+    margin-left: 2.2rem;
+    font-size: 1.2rem;
+}
+.LogoutBtn {
+    float: right;
+    position: relative;
+    bottom: 3.8rem;
+    right: 4rem;
+}
+.Logout {
+    color: white;
+    border: none;
+    background-color: rgb(68, 175, 210);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+/* Account CSS */
+.cardQR {
+    width: 12rem;
+    height: 12rem;
+    background-color: grey;
+}
+.Card-Container {
+    margin-left: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.text-Container {
+    position: relative;
+    font-family: "Quicksand", sans-serif;
+    left: 16rem;
+    bottom: 20rem;
+    font-size: 1.6rem;
+}
+.Name {
+    padding: .8rem;
+}
+.phoneNum {
+    padding: .8rem;
+}
+.email {
+    padding: .8rem;
+}
+.Driver-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.DriverInfo {
+    font-size: 1.6rem;
+    position: relative;
+    right: 19rem;
+    top: 6rem;
+}
+.License {
+    padding: .6rem;
+}
+.Policy {
+    padding: .6rem;
+}
+.Insurance {
+    padding: .6rem;
+}
+/* Contact CSS */
+.Contact {
+    font-size: 1.6rem;
+    padding: 4rem;
+    font-family: "Quicksand", sans-serif;
+}
+.Link {
+    color: rgb(123, 0, 255);
+}
+/* Update CSS */
+.update-Info {
+    font-size: 1.3rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+.update {
+    padding-top: 1.8rem;
+}
+.SubmitBtn {
+    display: flex;
+    margin-top: 4rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border-color: aqua;
+    cursor: pointer;
+    background-image: linear-gradient(315deg, rgb(42, 55, 176) 0%, aqua 74%);
+    box-shadow: 3px 5px;
+}
+/* Footer CSS */
+.Footer {
+    background-color: rgb(68, 175, 210);
+    height: 5.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
