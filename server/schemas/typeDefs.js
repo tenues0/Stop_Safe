@@ -65,7 +65,7 @@ const typeDefs = gql`
         loginpolice(email: String!, password: String!): Auth
         addUser(fullname: String!, email: String!, password: String!): Auth
         addPolice(fullname: String!, email: String!, password: String!): Auth
-        saveInsurance(User: saveInsuranceInput): User
+        saveInsurance(input: saveInsuranceInput): User
         deleteInsurance(policyId: String!): User
         saveRegistration(User: saveRegistrationInput): User
         deleteRegistration(registrationId: String!): User
