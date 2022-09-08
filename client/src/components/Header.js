@@ -1,13 +1,17 @@
 import React from "react";
-import '../styles/LeftNavbar.css'
+import "../index.css"
 
-function LeftNavbar() {
+function Header() {
     return (
+    <>
     <div className="Header">
         <h1>Stop Safe</h1>
+    </div>
+    <div className="LogoutBtn">
         <button className="Logout">Logout</button>
     </div>
+    </>
     )
 }
 
-export default LeftNavbar;
+export default Header;
