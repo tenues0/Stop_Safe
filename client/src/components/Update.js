@@ -6,7 +6,7 @@ import "../index.css"
 function Update() {
 
     const [saveInsurance, { error }] = useMutation(SAVE_INSURANCE);
-  const handleSaveInsurance = async (input) => {
+    const handleSaveInsurance = async (input) => {
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -20,7 +20,7 @@ function Update() {
       });
 
       // upon success, remove book's id from localStorage
-      savePolicyId(policyId);
+      savePolicyId(input);
     } catch (err) {
       console.error(err);
     }
