@@ -12,8 +12,8 @@ const policeSchema = new Schema(
     
     badgeNumber: {
       type: Number,
-      required: true,
-      unique: true,
+      required: false,
+      unique: false,
     },
     
     email: {

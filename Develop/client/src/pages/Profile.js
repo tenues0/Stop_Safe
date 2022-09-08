@@ -21,7 +21,7 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">
-        {profile.name}'s Details...
+        {profile.fullname}'s Details...
       </h2>
 
       

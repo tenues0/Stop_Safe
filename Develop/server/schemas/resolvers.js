@@ -5,35 +5,75 @@ const { trusted } = require('mongoose');
 
 const resolvers = {
     Query: {
-        me: async (parent, args, context) => {
-            if(context.user) {
-                const userData = await Police.findOne({ _id: context.user._id })
-                .select('-__v' -password)
-                return userData;
-            }
-            throw new AuthenticationError('Not Logged In');
-        }
-    },
+        profiles: async () => {
+            return Police.find();
+          },
+
+          profile: async (parent, { profileId }) => {
+            return Police.findOne({ _id: profileId });
+          },
+        },
     Mutation: {
         login: async (parent, { email, password }) => {
-            const user = await Police.findOne( { email });
-            if(!user) {
+            const profile = await Police.findOne( { email });
+            if(!profile) {
                 throw new AuthenticationError('Incorrect credentials')
             }
-            const correctPassword = await user.isCorrectPassword(password);
+            const correctPassword = await profile.isCorrectPassword(password);
             if(!correctPassword) {
                 throw new AuthenticationError('Incorrect credentials')
             }
-            const token = signToken(user);
-            return { token, user };
+            const token = signToken(profile);
+            return { token, profile };
         },
         addPolice: async (parent, args) => {
-            const user = await Police.create(args);
-            const token = signToken(user);
+            const profile = await Police.create(args);
+            const token = signToken(profile);
 
-            return { token, user };
+            return { token, profile };
         },
-        
+        addEmail:(parent, { profileId, email }) => {
+            return Police.findOneAndUpdate(
+                { _id: profileId },
+                {
+                  $addToSet: { email: email },
+                },
+                {
+                  new: true,
+                  runValidators: true,
+                }
+            );
+        },
+              addBadgeNumber:(parent, { profileId, badgeNumber }) => {
+                return Police.findOneAndUpdate(
+                    { _id: profileId },
+                    {
+                      $addToSet: { badgeNumber: badgeNumber },
+                    },
+                    {
+                      new: true,
+                      runValidators: true,
+                    }
+                );
+              },
+              removePolice: async (parent, { profileId }) => {
+                return Police.findOneAndDelete({ _id: profileId });
+              }, 
+                   
+              removeEmail: async (parent, { profileId, email }) => {
+                return Police.findOneAndUpdate(
+                  { _id: profileId },
+                  { $pull: { email: email } },
+                  { new: true }
+                );
+              },
+              removeBadgeNumber: async (parent, { profileId, badgeNumber }) => {
+                return Police.findOneAndUpdate(
+                  { _id: profileId },
+                  { $pull: {badgeNumber: badgeNumber } },
+                  { new: true }
+                );
+              },
         
     },
 };

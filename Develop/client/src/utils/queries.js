@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const QUERY_PROFILES = gql`
-  {
-    me {
+query allProfiles { 
+     profiles{
       _id
       fullname
       badgeNumber
