@@ -5,26 +5,26 @@ import "../index.css"
 
 function Update() {
 
-    const [saveInsurance, { error }] = useMutation(SAVE_INSURANCE);
-    const handleSaveInsurance = async (input) => {
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //   const [saveInsurance, { error }] = useMutation(SAVE_INSURANCE);
+  //   const handleSaveInsurance = async (input) => {
+  //   // get token
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token) {
-      return false;
-    }
+  //   if (!token) {
+  //     return false;
+  //   }
 
-    try {
-      const { data } = await saveInsurance({
-        variables: { input },
-      });
+  //   try {
+  //     const { data } = await saveInsurance({
+  //       variables: { input },
+  //     });
 
-      // upon success, remove book's id from localStorage
-      savePolicyId(input);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     // upon success, remove book's id from localStorage
+  //     savePolicyId(input);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
     return (
         <>
@@ -40,7 +40,8 @@ function Update() {
                 <input type="text"></input>
                 <div className="update">Update your Insurance Company:</div>
                 <input type="text"></input>
-                <button className="SubmitBtn" onClick={() => handleSaveInsurance}>Submit</button>
+                <button className="SubmitBtn" >Submit</button>
+                {/* onClick={() => handleSaveInsurance} */}
             </section>
         </>
     )
