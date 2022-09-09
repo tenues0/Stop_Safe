@@ -44,6 +44,32 @@ const resolvers = {
                 }
             );
         },
+
+        addAgencyAffiliation:(parent, { profileId, agencyAffiliation }) => {
+          return Police.findOneAndUpdate(
+              { _id: profileId },
+              {
+                $addToSet: { agencyAffiliation: agencyAffiliation },
+              },
+              {
+                new: true,
+                runValidators: true,
+              }
+          );
+      },
+        
+      addSupervisor:(parent, { profileId, supervisor }) => {
+        return Police.findOneAndUpdate(
+            { _id: profileId },
+            {
+              $addToSet: { supervisr: supervisor },
+            },
+            {
+              new: true,
+              runValidators: true,
+            }
+        );
+    },
               addBadgeNumber:(parent, { profileId, badgeNumber }) => {
                 return Police.findOneAndUpdate(
                     { _id: profileId },
@@ -56,6 +82,21 @@ const resolvers = {
                     }
                 );
               },
+               
+              addPhoneNumber:(parent, { profileId, phoneNumber }) => {
+                return Police.findOneAndUpdate(
+                    { _id: profileId },
+                    {
+                      $addToSet: { phoneNumber : phoneNumber  },
+                    },
+                    {
+                      new: true,
+                      runValidators: true,
+                    }
+                );
+              },
+
+
               removePolice: async (parent, { profileId }) => {
                 return Police.findOneAndDelete({ _id: profileId });
               }, 
@@ -67,10 +108,33 @@ const resolvers = {
                   { new: true }
                 );
               },
+
+              removeAgencyAffiliation: async (parent, { profileId, agencyAffiliation }) => {
+                return Police.findOneAndUpdate(
+                  { _id: profileId },
+                  { $pull: {agencyAffiliation: agencyAffiliation } },
+                  { new: true }
+                );
+              },
+              removeSupervisor: async (parent, { profileId, supervisor }) => {
+                return Police.findOneAndUpdate(
+                  { _id: profileId },
+                  { $pull: {supervisor: supervisor } },
+                  { new: true }
+                );
+              },
               removeBadgeNumber: async (parent, { profileId, badgeNumber }) => {
                 return Police.findOneAndUpdate(
                   { _id: profileId },
                   { $pull: {badgeNumber: badgeNumber } },
+                  { new: true }
+                );
+              },
+
+              removePhoneNumber: async (parent, { profileId, phoneNumber }) => {
+                return Police.findOneAndUpdate(
+                  { _id: profileId },
+                  { $pull: {phoneNumber: phoneNumber } },
                   { new: true }
                 );
               },

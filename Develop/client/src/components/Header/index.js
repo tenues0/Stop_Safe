@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+//import {image1} from '../Header';
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -17,8 +17,9 @@ const Header = () => {
           </h1>
         </Link>
         <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Welcome....
+          Welcome ....
         </p>
+        
         <div>
           {Auth.loggedIn() ? (
             <button className="btn btn-lg btn-light m-2" onClick={logout}>

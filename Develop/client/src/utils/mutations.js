@@ -16,14 +16,18 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-mutation Mutation($fullname: String!, $email: String!, $password: String!) {
-  addPolice(fullname: $fullname, email: $email, password: $password) {
+mutation Mutation($fullname: String!, $email: String!, $password: String!,$agencyAffiliation: String!,$supervisor:String!,$badgeNumber: String,$phoneNumber: String) {
+  addPolice(fullname: $fullname, email: $email, password: $password,agencyAffiliation: $agencyAffiliation,supervisor: $supervisor,badgeNumber:$badgeNumber,phoneNumber:$phoneNumber) {
     token
     profile {
       _id
       fullname
       email
       password
+      agencyAffiliation
+      supervisor
+      phoneNumber
+
     }
   }
 }

@@ -11,6 +11,14 @@ const Signup = () => {
     fullname: '',
     email: '',
     password: '',
+    agencyAffiliation: '',
+    supervisor:'',
+    badgeNumber: '',
+    phoneNumber: '',
+
+
+
+
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -69,12 +77,45 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <input
+                  className="form-input"
+                  placeholder="Agency-affiliation"
+                  name="agencyAffiliation"
+                  type="text"
+                  value={formState.agencyAffiliation}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="supervisor"
+                  name="supervisor"
+                  type="text"
+                  value={formState.supervisor}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="badgeNumber"
+                  name="badgeNumber"
+                  type="text"
+                  value={formState.badgeNumber}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="phoneNumber"
+                  name="phoneNumber"
+                  type="text"
+                  value={formState.phoneNumber}
+                  onChange={handleChange}
+                />
+
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: 'pointer' }}

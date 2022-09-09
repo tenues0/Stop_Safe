@@ -5,9 +5,12 @@ query allProfiles {
      profiles{
       _id
       fullname
-      badgeNumber
       email
       password
+      agencyAffiliation
+      supervisor
+      badgeNumber
+      phoneNumber
      
     }
   }
@@ -18,7 +21,11 @@ export const QUERY_SINGLE_PROFILE = gql`
     profile(profileId: $profileId) {
       _id
       fullname
-      
+      email
+      agencyAffiliation
+      supervisor
+      badgeNumber
+      phoneNumber
     }
   }
 `;

@@ -8,13 +8,28 @@ const policeSchema = new Schema(
       required: true,
       unique: true,
     },
-    
+    agencyAffiliation: {
+      type: String,
+      required: true,
+      unique: true,
+  },
+  supervisor: {
+    type: String,
+    required: true,
+    unique: false,
+    },
     
     badgeNumber: {
-      type: Number,
+      type: String,
       required: false,
-      unique: false,
+      unique: true,
     },
+    phoneNumber: {
+      type: String,
+      required: false,
+      unique: true,
+    },
+
     
     email: {
       type: String,
