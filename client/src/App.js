@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route 
           path='/' 
-          element={<SignupForm />} 
+          element={<DriverProfile />} 
         />
         <Route 
           path='/DriverProfile' 
