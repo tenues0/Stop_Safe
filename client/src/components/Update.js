@@ -38,8 +38,8 @@ function Update() {
                 <input type="text"></input>
                 <div className="update">Update Policy #:</div>
                 <input type="text"></input>
-                <div className="update">Update your Insurance Company:</div>
-                <input type="text"></input>
+                {/* <div className="update">Update your Insurance Company:</div>
+                <input type="text"></input> */}
                 <button className="SubmitBtn" >Submit</button>
                 {/* onClick={() => handleSaveInsurance} */}
             </section>
